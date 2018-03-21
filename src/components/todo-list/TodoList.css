@@ -1,8 +1,17 @@
 #todo-list {
   max-width: 600px;
-  margin: 0 auto
+  margin: 0 auto;
 }
 
 #todo-title {
-  background: gold
+  background: gold;
+}
+
+.done {
+  text-decoration-line: line-through;
+  color: blue;
+}
+
+li {
+  font-size: 150%;
 }
