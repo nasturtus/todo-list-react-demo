@@ -3,16 +3,14 @@ import { todos } from "../../utils/seedData";
 import "./TodoList.css";
 import TodoItem from "./TodoItem";
 import TodoListTitle from "./TodoListTitle";
+import TodoForm from "./TodoForm";
 
 class TodoList extends Component {
   constructor() {
     super();
     this.state = {
-      todos: todos,
-      newTodo: { description: "", isCompleted: false }
+      todos: todos
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   render() {
@@ -28,16 +26,7 @@ class TodoList extends Component {
             />
           );
         })}
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            <input
-              type="text"
-              value={this.state.newTodo.description}
-              onChange={this.handleChange}
-            />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
+        <TodoForm handleSubmit={this.handleSubmit.bind(this)} />
       </div>
     );
   }
@@ -48,18 +37,9 @@ class TodoList extends Component {
     this.setState({ todos: tmpTodos });
   }
 
-  handleChange(event) {
-    console.log(event.target.value);
-    this.setState({
-      newTodo: { description: event.target.value, isCompleted: false }
-    });
-  }
-  handleSubmit(event) {
-    event.preventDefault();
-    const tmpTodos = [...this.state.todos, this.state.newTodo];
-    console.log(tmpTodos);
+  handleSubmit(newTodo) {
+    const tmpTodos = [...this.state.todos, newTodo];
     this.setState({ todos: tmpTodos, newTodo: { description: "" } });
-    console.log("New todo added.");
   }
 }
 
