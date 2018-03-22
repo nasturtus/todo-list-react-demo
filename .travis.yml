@@ -9,7 +9,7 @@ script:
 - yarn build
 deploy:
   provider: heroku
-  app: https://young-cove-86568.herokuapp.com/
+  app: young-cove-86568
   on:
     repo: https://github.com/nasturtus/todo-list-react-demo
   api_key:
