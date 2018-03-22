@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+- '9'
+cache:
+  directories:
+  - node_modules
+script:
+- yarn test
+- yarn build
+deploy:
+  provider: heroku
+  app: https://young-cove-86568.herokuapp.com/
+  on:
+    repo: https://github.com/nasturtus/todo-list-react-demo
+  api_key:
+    secure: m+SF6lVf2jcEBoa5Xx/axxF3KP7ycIjoFmNvRzJgmOuMNh9BbgI7NdMwCUG13T0k7BxGVDD5GWu5rN0iv2Pc3zA5fz6Vup993oZ0L4nl55v03irq2z7fN5BVaDB0ytid6lWFHxlD+M6fddhsALLK4O5Wnwn5OgQapnlr/EfrA1fhihMy6G3y1/1oukg7a7fhblYMfQlitgKZBI8zdQixMQ5Ds5NRmo9TFlJDqugz/G0+wJFJtHcl+218Xc6QWQZdSY/gTg//D/fQ638I44UtqoInQ+/tKqO3cdATDhZJf+R6lvNw7ipcDLESxqKZhRLbycMdYsexwBLI7u6E2ngl8qqJE896u7ZaapUtn5clhtJWPXDslsZPW4pYkLqULYw5dMhVCSV5IZIbG48D+lxynh8gXwaKSUk51VfFjJcQZWw0uZQpgGvTS0eHoqMG1sTOxSYj3aisBIz7zzEGoBkJyQopwsfTDe25YjFaDM2oxJzrd7+/+SFwT9bhMix6x9JSShOvC/OzYyEwy1wOYPHUf5fjiC3LC/n7Lj8yI2+ENE89uWUq30Qd2CI0Y8O5sAr8zzVg2nytyLuxl78QrOXT9W1H0/7l8A6u7ElaT76NqvOdLRTyrmELseeSKz8YtK18mldd37El2luOIvQUCuRZRraEfc6yD5TsdJt98Cqx+L8=
