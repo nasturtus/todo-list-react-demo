@@ -10,4 +10,14 @@ describe("TodoForm", () => {
     wrapper.find("form").simulate("submit", { preventDefault() {} });
     expect(mockHandler).toBeCalled();
   });
+
+  it("should handle onChange event(mocked) with handleChange method from Parent ", () => {
+    const mockHandler = jest.fn();
+    const wrapper = shallow(<TodoForm onChange={mockHandler} />);
+    wrapper
+      .find("input#form-text-input")
+      .props()
+      .onChange({ target: { value: "a" } });
+    expect(mockHandler).toBeCalled();
+  });
 });
